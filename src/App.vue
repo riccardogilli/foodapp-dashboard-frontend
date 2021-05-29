@@ -1,37 +1,55 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+      <v-app-bar-title>{{ title }}</v-app-bar-title>
+      <v-spacer />
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+      <!--<v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn v-bind="attrs" v-on="on" icon>
+            <v-icon>mdi-account-multiple-outline</v-icon>
+          </v-btn>
+        </template>
+        <span>Utenti registrati</span>
+      </v-tooltip>
 
-      <v-spacer></v-spacer>
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn v-bind="attrs" v-on="on" icon>
+            <v-icon>mdi-food-apple-outline</v-icon>
+          </v-btn>
+        </template>
+        <span>Ricette</span>
+      </v-tooltip>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn v-bind="attrs" v-on="on" icon>
+            <v-icon>mdi-desktop-mac</v-icon>
+          </v-btn>
+        </template>
+        <span>Stato dell'applicazione</span>
+      </v-tooltip>!-->
     </v-app-bar>
+
+    <v-navigation-drawer app>
+      <v-list dense nav>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          link
+          :to="item.route"
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
 
     <v-main>
       <router-view />
@@ -44,7 +62,29 @@ export default {
   name: "App",
 
   data: () => ({
-    //
+    title: "Food game Dashboard",
+    items: [
+      {
+        title: "Dashboard",
+        icon: "mdi-view-dashboard",
+        route: "/",
+      },
+      /*{
+        title: "Users",
+        icon: "mdi-account-multiple-outline",
+        route: "users",
+      },*/
+      {
+        title: "Recipes",
+        icon: "mdi-food-apple-outline",
+        route: "recipes",
+      },
+      {
+        title: "Application status",
+        icon: "mdi-desktop-mac",
+        route: "appstatus",
+      },
+    ],
   }),
 };
 </script>
