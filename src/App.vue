@@ -69,18 +69,18 @@ export default {
         icon: "mdi-view-dashboard",
         route: "/",
       },
-      {
-        title: "Utenti",
+      /*{
+        title: "Users",
         icon: "mdi-account-multiple-outline",
         route: "users",
-      },
+      },*/
       {
-        title: "Ricette",
+        title: "Recipes",
         icon: "mdi-food-apple-outline",
         route: "recipes",
       },
       {
-        title: "Stato dell'applicazione",
+        title: "Application status",
         icon: "mdi-desktop-mac",
         route: "appstatus",
       },
