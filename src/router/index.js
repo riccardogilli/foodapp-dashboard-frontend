@@ -26,7 +26,7 @@ const routes = [
   {
     path: "/appstatus",
     name: "AppStatus",
-    component: AppStatus,
+    component: Home,
   },
 ];
 
