@@ -32,7 +32,7 @@
       </v-tooltip>!-->
     </v-app-bar>
 
-    <v-navigation-drawer app>
+    <!--<v-navigation-drawer app>
       <v-list dense nav>
         <v-list-item
           v-for="item in items"
@@ -49,7 +49,7 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer>-->
 
     <v-main>
       <router-view />
